@@ -52,7 +52,6 @@ const SchoolAdmin = () => {
                 ) :
                 (
                     <>
-
                         <SchoolAdminForm />
                         <ul>
                             {
