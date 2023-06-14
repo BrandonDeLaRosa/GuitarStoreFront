@@ -57,7 +57,8 @@ const SchoolAdmin = () => {
                             {
                                 admins.map(admin => (
                                     <li key={admin.id}>
-                                        {admin.firstname} {admin.lastname}
+                                        <h4>{admin.id} {admin.firstname} {admin.lastname}</h4>
+                                        <h4>{admin.email} </h4>
                                         <button onClick={() => dispatch(deleteAdminThunk(admin.id))}>Delete</button>
                                         <button onClick={() => {setUpdate(true), updateAdmin(admin),console.log(admin);}}>Update</button>
                                     </li>

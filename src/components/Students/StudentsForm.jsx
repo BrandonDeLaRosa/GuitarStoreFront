@@ -1,14 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { createTeacherThunk } from '../../store/slices/teachers.slice';
+import { createStudentThunk } from '../../store/slices/students.slice';
+import { useDispatch } from 'react-redux';
 
-const TeachersForm = () => {
-    const {register, handleSubmit,reset} = useForm();
+const StudentsForm = () => {
+
+    const { register, handleSubmit, reset } = useForm()
     const dispatch = useDispatch()
 
     const submit = (data) => {
-        dispatch(createTeacherThunk(data))
+        dispatch(createStudentThunk(data))
         reset({
             firstname: '',
             lastname: '',
@@ -16,28 +17,31 @@ const TeachersForm = () => {
             email: '',
             password: ''
         })
-        console.log(data);
     }
-    // const id = parseInt(localStorage.getItem("id"))
-    
+
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <div>
+            <h1>Create</h1>
+            <div className='inputContainer'>
                 <label htmlFor="firstname">Firstname</label>
-                <input type="text" id='firstanme' {...register("firstname")} />
+                <input type="text" id='firstname' {...register("firstname")} />
             </div>
-            <div>
+            <div className='inputContainer'>
                 <label htmlFor="lastname">Lastname</label>
-                <input type="text" id='lastanme' {...register("lastname")} />
+                <input type="text" id='lastname' {...register("lastname")} />
             </div>
-            <div>
+            <div className='inputContainer'>
+                <label htmlFor="age">Age</label>
+                <input type="number" id='age' {...register("age")} />
+            </div>
+            <div className='inputContainer'>
                 <label htmlFor="location">Location</label>
                 <input type="text" id='location' {...register("location")} />
             </div>
-            {/* <div>
+            <div>
                 <label htmlFor="img">Profile Picture</label>
                 <input type="file" id='img' {...register("img")} />
-            </div> */}
+            </div>
             <div>
                 <label htmlFor="schoolAdminId">Administrator id </label>
                 <input type="number" id='schoolAdminId' {...register("schoolAdminId")} />
@@ -47,4 +51,4 @@ const TeachersForm = () => {
     );
 };
 
-export default TeachersForm;
+export default StudentsForm;
