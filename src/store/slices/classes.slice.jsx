@@ -34,6 +34,13 @@ export const deleteClassThunk = (id) => dispatch => {
         .then(() => dispatch(getClassesThunk()))
         .finally(() => dispatch(setIsLoading(false)));
 }
+
+export const updateClassesThunk = (id,data) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.put(`http://localhost:8000/api/v1/guitarStore/class/${id}`,data)
+        .then(() => dispatch(getClassesThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
 export const { setClasses } = classesSlice.actions;
 
 export default classesSlice.reducer;

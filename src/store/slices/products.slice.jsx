@@ -35,5 +35,12 @@ export const deleteProductThunk = (id) => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const updateProductsThunk = (id,data) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.put(`http://localhost:8000/api/v1/guitarStore/product/${id}`,data)
+        .then(() => dispatch(getProductsThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const { setProducts } = ProductsSlice.actions;
 export default ProductsSlice.reducer;

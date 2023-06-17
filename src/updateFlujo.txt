@@ -1,0 +1,19 @@
+Cuando se hace clic en el botón "Update" junto a un admin en la lista, se activa el evento onClick asociado al botón. Este evento llama a la función handleUpdate(admin) y pasa el objeto admin como argumento.
+
+En la función handleUpdate(admin), se guarda el objeto admin en el estado selectedAdmin utilizando setSelectedAdmin(admin). Esto almacena el admin seleccionado para su posterior actualización.
+
+Como resultado de llamar a setSelectedAdmin(admin), el estado update se establece en true, lo que muestra el formulario de actualización en lugar de la lista de admins.
+
+El formulario de actualización se renderiza en la pantalla, y los campos de entrada se inicializan con los valores actuales del admin seleccionado.
+
+Cuando se envía el formulario de actualización, se dispara el evento onSubmit asociado al formulario y se llama a la función handleSubmit(updateAdmin).
+
+En la función updateAdmin({ firstname, lastname, username }), los valores actualizados del formulario se obtienen como argumento. Estos valores corresponden a los campos de entrada del formulario con los nombres "firstname", "lastname" y "username".
+
+Se crea un objeto data con las propiedades firstname, lastname y username a partir de los valores obtenidos del formulario.
+
+Se despacha una acción updateAdminThunk pasando el ID del admin seleccionado y el objeto data como argumentos. Esta acción se encarga de enviar una solicitud al servidor para actualizar los datos del admin con el ID correspondiente.
+
+Después de despachar la acción, se realiza cualquier limpieza necesaria en el formulario, como restablecer los valores de los campos de entrada a vacío mediante reset({ firstname: '', lastname: '', username: '' }).
+
+Por último, se establece el estado update en false para ocultar el formulario de actualización y volver a mostrar la lista de admins.

@@ -35,6 +35,13 @@ export const deleteStudentThunk = (id) => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const updateStudentsThunk = (id, data) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.put(`http://localhost:8000/api/v1/guitarStore/student/${id}`,data)
+        .then(() => dispatch(getStudentsThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const { setStudents } = studentSlice.actions;
 
 export default studentSlice.reducer;
