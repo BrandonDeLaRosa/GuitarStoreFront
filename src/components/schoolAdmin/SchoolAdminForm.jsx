@@ -23,7 +23,7 @@ const SchoolAdminForm = () => {
     // }
     return (
 
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(submit)} className='formCard'>
             <h1>Create</h1>
             <div className='inputContainer'>
                 <label htmlFor="firstname">Firstname</label>

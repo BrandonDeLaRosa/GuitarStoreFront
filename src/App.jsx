@@ -12,6 +12,7 @@ import Classes from './pages/Classes'
 import Sales from './pages/sales'
 import Products from './pages/Products'
 import Home from './pages/Home'
+import { Container } from 'react-bootstrap'
 
 function App() {
 
@@ -22,18 +23,20 @@ function App() {
       <HashRouter>
         {loading && <Background />}
         <Header />
-        <Routes>
-          <Route path='/' element={<Loggin/>} />
-          <Route element={<ProtectedRoutes />}>
-            <Route path='/home' element={<Home/>}/>
-            <Route path='/admins' element={<SchoolAdmin />} />
-            <Route path='/teachers' element={<Teachers />} />
-            <Route path='/students' element={<Students />} />
-            <Route path='/classes' element={<Classes />} />
-            <Route path='/sales' element={<Sales/>} />
-            <Route path='/products' element={<Products />} />
-          </Route>
-        </Routes>
+        <Container className='my-4'>
+          <Routes>
+            <Route path='/' element={<Loggin />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/home' element={<Home />} />
+              <Route path='/admins' element={<SchoolAdmin />} />
+              <Route path='/teachers' element={<Teachers />} />
+              <Route path='/students' element={<Students />} />
+              <Route path='/classes' element={<Classes />} />
+              <Route path='/sales' element={<Sales />} />
+              <Route path='/products' element={<Products />} />
+            </Route>
+          </Routes>
+        </Container>
       </HashRouter>
 
     </div>
