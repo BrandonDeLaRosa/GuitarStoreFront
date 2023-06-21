@@ -35,6 +35,12 @@ const Loggin = () => {
             })
     }
 
+    const visible = (e) => {
+        // alert("click")
+        e.preventDefault()
+        setPasswordVisibility(!passwordVisibility)
+    }
+
 
     return (
         <div>
@@ -57,7 +63,7 @@ const Loggin = () => {
                             <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
                         </svg>
                     </button>
-                    <button onClick={() => setPasswordVisibility(!passwordVisibility)}><i class="fa-solid fa-eye"></i></button>
+                    <button className='eye' onClick={visible}>{passwordVisibility?  <i class="fa-regular fa-eye-slash"></i> : <i class="fa-solid fa-eye"></i> }</button>
                 </form>
             </div>
         </div>
