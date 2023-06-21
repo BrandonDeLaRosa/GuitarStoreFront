@@ -21,29 +21,37 @@ const TeachersForm = () => {
     // const id = parseInt(localStorage.getItem("id"))
     
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <div>
+        <div className='pagesCreateForm'>
+            <div className='formTitle'>Create Teacher</div>
+               <form onSubmit={handleSubmit(submit)} className='formContainer'>
+            <div className='form-group'>
                 <label htmlFor="firstname">Firstname</label>
-                <input type="text" id='firstanme' {...register("firstname")} />
+                <input className='inputFieldsLogin' type="text" id='firstanme' {...register("firstname")} />
             </div>
-            <div>
+            <div className='form-group'>
                 <label htmlFor="lastname">Lastname</label>
-                <input type="text" id='lastanme' {...register("lastname")} />
+                <input className='inputFieldsLogin' type="text" id='lastanme' {...register("lastname")} />
             </div>
-            <div>
+            <div className='form-group'>
                 <label htmlFor="location">Location</label>
-                <input type="text" id='location' {...register("location")} />
+                <input className='inputFieldsLogin' type="text" id='location' {...register("location")} />
             </div>
             {/* <div>
                 <label htmlFor="img">Profile Picture</label>
-                <input type="file" id='img' {...register("img")} />
+                <input className='inputFieldsLogin' type="file" id='img' {...register("img")} />
             </div> */}
-            <div>
+            <div className='form-group'>
                 <label htmlFor="schoolAdminId">Administrator id </label>
-                <input type="number" id='schoolAdminId' {...register("schoolAdminId")} />
+                <input className='inputFieldsLogin' type="number" id='schoolAdminId' {...register("schoolAdminId")} />
             </div>
-            <button type='submit'>Submit</button>
+            <button class="pagesCreateBtn">
+                        <span class="hover-underline-animation"> Create </span>
+                        <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
+                            <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+                        </svg>
+            </button>
         </form>
+        </div>
     );
 };
 
