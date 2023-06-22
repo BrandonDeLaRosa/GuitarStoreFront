@@ -40,54 +40,83 @@ const Products = () => {
 
     return (
         <div>
-            // {update ? (
+             {update ? (
                 <>
-                    <h1>Update</h1>
-                    <form onSubmit={handleSubmit(updateClase)}>
-                        <div className='inputContainer'>
+                <h4 style={{ color: "red", textAlign: "center" }}>Please fill all fields!</h4>
+                    <div className='pagesCreateForm'>
+                    <h1 className='formTitle'>Update a product</h1>
+                    <form onSubmit={handleSubmit(updateClase)} className='formContainer'>
+                        <div className='form-group'>
                             <label htmlFor="name">Name</label>
-                            <input type="text" id='name' {...register("name")} />
+                            <input className='inputFieldsLogin' type="text" id='name' {...register("name")} />
                         </div>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="description">Description</label>
-                            <input type="text" id='description' {...register("description")} />
+                            <input className='inputFieldsLogin' type="text" id='description' {...register("description")} />
                         </div>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="price">Price</label>
-                            <input type="float" id='price' {...register("price")} />
+                            <input className='inputFieldsLogin' type="float" id='price' {...register("price")} />
                         </div>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="quantity">Quantity</label>
-                            <input type="number" id='quantity' {...register("quantity")} />
+                            <input className='inputFieldsLogin' type="number" id='quantity' {...register("quantity")} />
                         </div>
-                        <select name="availability" id="availability" {...register("available")}>
+                        <select className='updateSelectContainer' name="availability" id="availability" {...register("available")}>
                             <option value={true}>available</option>
                             <option value={false}>Not available</option>
                         </select>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="schoolAdminId">Administrator Id</label>
-                            <input type="text" id='schoolAdminId' {...register("schoolAdminId")} />
+                            <input className='inputFieldsLogin' type="text" id='schoolAdminId' {...register("schoolAdminId")} />
                         </div>
-                        <button type='submit'>update</button>
-                        <button onClick={() => setUpdate(false)}>Cancel</button>
+                        <div className='updateBtns'>
+                        <button className='updateBtn' type='submit'>update</button>
+                        <button className='updateBtn' onClick={() => setUpdate(false)}>Cancel</button>
+                        </div>
                     </form>
+                    </div>
                 </>
             ) : (
                 <>
-
                     <h1>Products</h1>
+                    <div className='pageContainer'>
                     <ProductsForm />
-                    <ul>
+                    <ul className='listContainer'>
                         {
                             products.map(product => (
-                                <li key={product.id}>
-                                    {product.name}
-                                    <button onClick={() => dispatch(deleteProductThunk(product.id))}>delete</button>
-                                    <button onClick={() => handleUpdate(product)}>Update</button>
+                                <li className='listItems' key={product.id}>
+                                    <h5><b>Id: </b>{product.id}</h5>
+                                    <h5><b>Name: </b>{product.name}</h5>
+                                    <h5><b>Description: </b>{product.description}</h5>
+                                    <h5><b>Price: </b>{product.price}</h5>
+                                    <h5><b>Quantity: </b>{product.quantity}</h5>
+                                    <h5><b>Img: </b>{product.img}</h5>
+                                    <h5><b>Available: </b>{product.available? "Disponible" : "No disponible"}</h5>
+                                    <br /><hr />
+                                    <h5><b>Admin Related:</b></h5> 
+                                    <h5><b>Id: </b>{product.schoolAdminId}</h5>
+                                    <h5><b>Firstname: </b>{product.SchoolAdmin.firstname}</h5> 
+                                    <h5><b>LastName: </b> {product.SchoolAdmin.lastname}</h5>
+                                    <br /><hr />
+                                    <h5><b>Sale Related:</b></h5> 
+                                    {product.SalesProducts?.map(estudiante => (
+                                        <li className='subListItems'>
+                                            <h5><b>Id: </b>{estudiante.id}</h5>
+                                            {/* <h5><b>Firstname: </b>{estudiante.Student.firstname}</h5>  */}
+                                            {/* <h5><b>LastName: </b> {estudiante.Student.lastname}</h5> */}
+                                        </li>
+                                    ))}
+                                    <br /><hr />
+                                   <div className='dltUpdBtns'>
+                                   <button className='dlUpBtn' onClick={() => dispatch(deleteProductThunk(product.id))}>delete</button>
+                                    <button className='dlUpBtn' onClick={() => handleUpdate(product)}>Update</button>
+                                   </div>
                                 </li>
                             ))
                         }
                     </ul>
+                    </div>
                 </>)}
         </div>
     );

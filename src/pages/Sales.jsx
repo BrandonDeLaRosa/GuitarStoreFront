@@ -14,16 +14,18 @@ const Sales = () => {
     return (
         <div>
             <h1>Sales</h1>
+            <div className='pageContainer'>
             <SalesForm/>
-            <ul>
+            <ul className='listContainer'>
                 {
                     sales.map(sale => (
-                        <li key={sale.id}>
+                        <li className='listItems' key={sale.id}>
                             {sale.client} <button onClick={() => dispatch(deleteSaleThunk(sale.id))}>Delete</button>
                         </li>
                     ))
                 }
             </ul>
+                </div>
         </div>
     );
 };

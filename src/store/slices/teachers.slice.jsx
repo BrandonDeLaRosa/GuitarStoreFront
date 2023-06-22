@@ -31,14 +31,14 @@ export const createTeacherThunk = (data) => (dispatch) => {
 
 export const deleteTeacherThunk = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.delete(`http://localhost:8000/api/v1/guitarStore/teacher/${id}`)
+    axios.delete(`http://localhost:8000/api/v1/guitarStore/teacher/${id}`)
         .then(() => dispatch(getAllTeachers()))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
 export const updateTeacherThunk = (id,data) => (dispatch) => {
     dispatch(setIsLoading(true));
-    return axios.put(`http://localhost:8000/api/v1/guitarStore/teacher/${id}`,data)
+    axios.put(`http://localhost:8000/api/v1/guitarStore/teacher/${id}`,data)
         .then(() => dispatch(getAllTeachers()))
         .finally(() => dispatch(setIsLoading(false)));
 }

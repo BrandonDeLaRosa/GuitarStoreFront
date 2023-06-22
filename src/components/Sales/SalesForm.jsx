@@ -13,29 +13,37 @@ const SalesForm = () => {
     }
 
     return (
-              <form onSubmit={handleSubmit(submit)}>
-            <div className='inputContainer'>
-                <label htmlFor="client">Client</label>
-                <input type="text" id='client' {...register("client")} />
-            </div>
-            <div className='inputContainer'>
-                <label htmlFor="email">Email</label>
-                <input type="email" id='email' {...register("email")} />
-            </div>
-            <div className='inputContainer'>
-                <label htmlFor="phone">Phone</label>
-                <input type="number" id='phone' {...register("phone")} />
-            </div>
-            <div className='inputContainer'>
-                <label htmlFor="location">Location</label>
-                <input type="text" id='location' {...register("location")} />
-            </div>
-            <div>
-                <label htmlFor="schoolAdminId">Administrator id </label>
-                <input type="number" id='schoolAdminId' {...register("schoolAdminId")} />
-            </div>
-            <button type='submit'>Submit</button>
-        </form>
+        <div className='pagesCreateForm'>
+            <h1 className='formTitle'>Create Sale</h1>
+            <form onSubmit={handleSubmit(submit)} className='formContainer'>
+                <div className='form-group'>
+                    <label htmlFor="client">Client</label>
+                    <input className='inputFieldsLogin' type="text" id='client' {...register("client")} />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor="email">Email</label>
+                    <input className='inputFieldsLogin' type="email" id='email' {...register("email")} />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor="phone">Phone</label>
+                    <input className='inputFieldsLogin' type="number" id='phone' {...register("phone")} />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor="location">Location</label>
+                    <input className='inputFieldsLogin' type="text" id='location' {...register("location")} />
+                </div>
+                <div className='from-group'>
+                    <label htmlFor="schoolAdminId">Administrator id </label>
+                    <input className='inputFieldsLogin' type="number" id='schoolAdminId' {...register("schoolAdminId")} />
+                </div>
+                <button class="pagesCreateBtn">
+                    <span class="hover-underline-animation"> Create </span>
+                    <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
+                        <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
     );
 };
 

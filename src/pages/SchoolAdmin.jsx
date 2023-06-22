@@ -33,41 +33,54 @@ const SchoolAdmin = () => {
     };
 
     return (
-        <div>
+        <div className='masterContainer'>
             <h1>School Admins</h1>
             {update ? (
                 <>
-                    <h1>Update</h1>
+                <h4 style={{ color: "red", textAlign: "center" }}>Please fill all fields!</h4>
+                    <div className='pagesCreateForm'>
+                    <h1 className='formTitle'>Update an admin</h1>
                     <form onSubmit={handleSubmit(updateAdmin)}>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="firstname">Firstname</label>
-                            <input type="text" id='firstname' {...register("firstname")} />
+                            <input className='inputFieldsLogin' type="text" id='firstname' {...register("firstname")} />
                         </div>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="lastname">Lastname</label>
-                            <input type="text" id='lastname' {...register("lastname")} />
+                            <input className='inputFieldsLogin' type="text" id='lastname' {...register("lastname")} />
                         </div>
-                        <div className='inputContainer'>
+                        <div className='form-group'>
                             <label htmlFor="username">Username</label>
-                            <input type="text" id='username' {...register("username")} />
+                            <input className='inputFieldsLogin' type="text" id='username' {...register("username")} />
                         </div>
-                        <button type='submit'>update</button>
-                        <button onClick={() => setUpdate(false)}>Cancel</button>
+                        <div className='updateBtns'>
+                        <button className='updateBtn' type='submit'>update</button>
+                        <button className='updateBtn' onClick={() => setUpdate(false)}>Cancel</button>
+                        </div>
                     </form>
+                    </div>
                 </>
             ) : (
-                <>
-                    <SchoolAdminForm />
-                    <ul>
-                        {admins.map(admin => (
-                            <li key={admin.id}>
-                                <h4>{admin.id} {admin.firstname} {admin.lastname}</h4>
-                                <h4>{admin.email}</h4>
-                                <button onClick={() => dispatch(deleteAdminThunk(admin.id))}>Delete</button>
-                                <button onClick={() => handleUpdate(admin)}>Update</button> {/* Usar el manejador de eventos handleUpdate */}
-                            </li>
-                        ))}
-                    </ul>
+                <>  
+                    <div className='pageContainer'>
+                        <SchoolAdminForm />
+                    
+                        <ul className='listContainer'>
+                            {admins.map(admin => (
+                                <li className='listItems' key={admin.id}>
+                                    <h5><b>Id: </b>{admin.id}</h5>
+                                    <h5><b>Username: </b>{admin.username}</h5>
+                                    <h5><b>Firstname: </b>{admin.firstname}</h5>
+                                    <h5><b>Lastname: </b>{admin.lastname}</h5>
+                                    <h5><b>Email: </b>{admin.lastname}</h5>
+                                    <div className='dltUpdBtns'>
+                                    <button className='dlUpBtn' onClick={() => dispatch(deleteAdminThunk(admin.id))}>Delete</button>
+                                    <button className='dlUpBtn' onClick={() => handleUpdate(admin)}>Update</button> {/* Usar el manejador de eventos handleUpdate */}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </>
             )}
         </div>

@@ -107,7 +107,7 @@ label {
   margin-bottom: 5px;
 }
 
-input[type="text"], input[type="password"],input[type="number"],input[type="email"] {
+input[type="text"], input[type="password"],input[type="number"],input[type="email"], input[type="float"] {
   width: 100%;
   padding: 12px 20px;
   font-size: 16px;
@@ -203,9 +203,57 @@ input[type="submit"]:hover {
 
 /* ! Pages Forms  */
 
+  .masterContainer{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+
+  }
+
+  .pageContainer{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+ 
+  .listContainer{
+    padding: 0rem 1rem;
+    overflow-y: scroll;
+    /* max-height: 1050px; */
+    width: 500px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: -1rem; */
+  }
+
+   .listItems{
+    max-width: 313px;
+    min-width: 313px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px #ccc;
+    padding: 1rem;
+  
+  }
+
+  .subListItems{
+    list-style: none;
+  }
+
   .pagesCreateForm{
       width: 300px;
-      height: 730px;
+      /* height: 730px; */
       margin: 5rem auto;
       padding: 20px;
       border: 1px solid #ccc;
@@ -283,12 +331,106 @@ input[type="submit"]:hover {
 
 
 
+  .dltUpdBtns{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .dlUpBtn{
+    height: 2rem;
+    width: 4rem;
+    border-radius: .5rem;
+  }
+
 
 /* ! */
 
+/* ! update Form */
+
+.updateBtns{
+  /* background-color: #3f3f3f; */
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+
+}
+
+.updateBtn{
+  height: 3rem;
+  width: 5rem;
+  border-radius: .5rem;
+}
+
+.updateSelectContainer{
+  height: 4rem;
+  background-color: #f5f5f5;
+  border-radius: .2rem;
+  border: 1px solid #ccc;
+  color: #000000;
+  margin: 1rem 0rem;
+}
+
+/* ! */
+
+@media only screen and (min-width: 800px) {
+  .pageContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: aqua; */
+    /* margin: 0 auto; */
+  }
+
+  .pagesCreateForm{
+    width: 500px;
+    height: 750px;
+    /* margin: 5rem auto; */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  .listContainer{
+
+    padding: 4rem 1rem;
+    overflow-y: scroll;
+    /* max-height: 750px; */
+    width: 500px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 1rem; */
+
+  }
 
 
-
+  .listItems{
+    max-width: 313px;
+    min-width: 313px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px #ccc;
+    padding: 1rem;
+  }
+}
 
 
 

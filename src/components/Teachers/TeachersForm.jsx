@@ -12,9 +12,8 @@ const TeachersForm = () => {
         reset({
             firstname: '',
             lastname: '',
-            username: '',
-            email: '',
-            password: ''
+            location: '',
+            schoolAdminId: ''
         })
         console.log(data);
     }

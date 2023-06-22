@@ -40,44 +40,73 @@ const Classes = () => {
         <div>
             {update ? (
                 <>
-                    <h1>Update</h1>
-                    <form onSubmit={handleSubmit(updateClase)}>
-                        <div className='inputContainer'>
-                            <label htmlFor="name">Name</label>
-                            <input type="text" id='name' {...register("name")} />
-                        </div>
-                        <div className='inputContainer'>
-                            <label htmlFor="description">Description</label>
-                            <input type="text" id='description' {...register("description")} />
-                        </div>
-                        <select name="availability" id="availability" {...register("available")}>
-                            <option value={true}>available</option>
-                            <option value={false}>Not available</option>
-                        </select>
-                        <div className='inputContainer'>
-                            <label htmlFor="teacher_id">Teacher Id</label>
-                            <input type="text" id='teacher_id' {...register("teacher_id")} />
-                        </div>
-                        <button type='submit'>update</button>
-                        <button onClick={() => setUpdate(false)}>Cancel</button>
-                    </form>
+                    <div className='pagesCreateForm'>
+                        <h1 className='formTitle'>Update a class</h1>
+                        <form onSubmit={handleSubmit(updateClase)} className='formContainer'>
+                            <div className='form-group'>
+                                <label htmlFor="name">Name</label>
+                                <input className='inputFieldsLogin' type="text" id='name' {...register("name")} />
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor="description">Description</label>
+                                <input className='inputFieldsLogin' type="text" id='description' {...register("description")} />
+                            </div>
+                            <select className='updateSelectContainer' name="availability" id="availability" {...register("available")}>
+                                <option className='selectOption' value={true}>available</option>
+                                <option className='selectOption' value={false}>Not available</option>
+                            </select>
+                            <div className='form-group'>
+                                <label htmlFor="teacher_id">Teacher Id</label>
+                                <input className='inputFieldsLogin' type="text" id='teacher_id' {...register("teacher_id")} />
+                            </div>
+                            <div className='updateBtns'>
+                                <button className='updateBtn' type='submit'>update</button>
+                                <button className='updateBtn' onClick={() => setUpdate(false)}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
                 </>
             ) : (
                 <>
-
                     <h1>Classes</h1>
-                    <ClassesForm />
-                    <ul>
-                        {
-                            classes.map(clase => (
-                                <li key={clase.id}>
-                                    {clase.name} {clase.description}
-                                    <button onClick={() => dispatch(deleteClassThunk(clase.id))}>Delete</button>
-                                    <button onClick={() => handleUpdate(clase)}>Update</button>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                    <div className='pageContainer'>
+                        <ClassesForm />
+                        <ul className='listContainer'>
+                            {
+                                classes.map(clase => (
+                                    <li key={clase.id} className='listItems'>
+                                        <h5><b>Class: </b> {clase.name} </h5>
+                                        <h5><b>Description: </b> {clase.description} </h5>
+                                        <h5><b>Availability: </b> {clase.available ? "disponible" : "No disponible"} </h5>
+                                        <br /><hr />
+                                        <h5><b>Admin Related:</b></h5>
+                                        <h5><b>Id: </b>{clase.schoolAdminId}</h5>
+                                        <h5><b>Firstname: </b>{clase.SchoolAdmin.firstname}</h5>
+                                        <h5><b>LastName: </b> {clase.SchoolAdmin.lastname}</h5>
+                                        <br /><hr />
+                                        <h5><b>Students Related:</b></h5>
+                                        {clase.StudentsClasses?.map(estudiante => (
+                                            <li className='subListItems'>
+                                                <h5><b>Id: </b>{estudiante.Student.id}</h5>
+                                                <h5><b>Firstname: </b>{estudiante.Student.firstname}</h5>
+                                                <h5><b>LastName: </b> {estudiante.Student.lastname}</h5>
+                                            </li>
+                                        ))}
+                                        <br /><hr />
+                                        <h5><b>Teacher Related:</b></h5>
+                                        <h5><b>Id: </b>{clase.teacherId}</h5>
+                                        <h5><b>Firstname: </b>{clase.Teacher.firstname}</h5>
+                                        <h5><b>LastName: </b> {clase.Teacher.lastname}</h5>
+                                        <br /><hr />
+                                        <div className='dltUpdBtns'>
+                                            <button className='dlUpBtn' onClick={() => dispatch(deleteClassThunk(clase.id))}>Delete</button>
+                                            <button className='dlUpBtn' onClick={() => handleUpdate(clase)}>Update</button>
+                                        </div>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
                 </>)}
         </div>
     );
