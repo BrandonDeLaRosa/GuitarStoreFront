@@ -1,4 +1,5 @@
 import './App.css'
+import './theme.min.css'
 import SchoolAdmin from './pages/SchoolAdmin'
 import { useSelector } from 'react-redux'
 import { HashRouter, Route, Routes } from 'react-router-dom'
@@ -13,6 +14,7 @@ import Sales from './pages/sales'
 import Products from './pages/Products'
 import Home from './pages/Home'
 import { Container } from 'react-bootstrap'
+import SignUp from './pages/SignUp'
 
 function App() {
 
@@ -26,6 +28,7 @@ function App() {
         <Container className='my-4'>
           <Routes>
             <Route path='/' element={<Loggin />} />
+            <Route path='/signUp' element={<SignUp />} />
             <Route element={<ProtectedRoutes />}>
               <Route path='/home' element={<Home />} />
               <Route path='/admins' element={<SchoolAdmin />} />

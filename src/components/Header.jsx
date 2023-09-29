@@ -13,11 +13,12 @@ const Header = () => {
         <div className='navContainer'>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">Music School: " La fama "</Navbar.Brand>
+                    <Navbar.Brand href="#home">Escuela de musica: " La fama "</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/">Login</Nav.Link>
+                            <Nav.Link as={Link} to="/">Iniciar sesión</Nav.Link>
+                            <Nav.Link as={Link} to="/signUp">Registrarse</Nav.Link>
                             <NavDropdown title="Sections" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to="/home" >Home</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to="/admins">Administrators</NavDropdown.Item>
