@@ -42,7 +42,7 @@ const Loggin = () => {
 
 
     return (
-        
+
         <main className=''>
             <section class="my-lg-14 my-8">
                 <div class="container">
@@ -68,21 +68,24 @@ const Loggin = () => {
                                             <label for="password">Password:</label>
                                             <input className='inputFieldsLogin' type={passwordVisibility ? "text" : "password"} id='password' name='password' required {...register("password")} />
                                             <span><i id="passwordToggler" class="bi bi-eye-slash"></i></span>
-                                        <button className='eye' onClick={visible} style={{position:"absolute", bottom:"9px", right:"11px"}}>
-                                            {passwordVisibility ? <i class="fa-regular fa-eye-slash"></i> 
-                                            : 
-                                            <i class="fa-solid fa-eye"></i>}</button>
+                                            <button className='eye' onClick={visible} style={{ position: "absolute", bottom: "9px", right: "11px" }}>
+                                                {passwordVisibility ? <i class="fa-regular fa-eye-slash"></i>
+                                                    :
+                                                    <i class="fa-solid fa-eye"></i>}</button>
                                         </div>
 
                                     </div>
                                     <div class="col-12 d-grid">
-                                        <button class="cta">
+                                        {/* <button class="cta">
                                             
                                             <span class="hover-underline-animation"> Enviar </span>
                                             <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal">
                                                 <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
                                             </svg>
-                                        </button>
+                                        </button> */}
+
+                                        <div class="col-12 d-grid"> <button type="submit" class="btn btn-primary">Register</button>
+                                        </div>
 
                                     </div>
                                     <div class="d-flex justify-content-between">

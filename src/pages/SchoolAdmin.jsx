@@ -34,7 +34,7 @@ const SchoolAdmin = () => {
 
     return (
         <div className='masterContainer'>
-            <h1>School Admins</h1>
+            {/* <h1>School Admins</h1> */}
             {update ? (
                 <>
                 <h4 style={{ color: "red", textAlign: "center" }}>Please fill all fields!</h4>
